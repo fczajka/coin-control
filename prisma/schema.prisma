@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id @default(uuid())
+  email        String        @unique
+  firstName    String
+  lastName     String
+  salt         String
+  iv           String
+  deleted      Boolean       @default(false)
+  accounts     Account[]
+  transactions Transaction[]
+  category     Category[]
+
+  @@index([id])
+}
+
+model Account {
+  id           String        @id @default(uuid())
+  userId       String
+  name         String
+  amount       String
+  currency     String
+  owner        User          @relation(fields: [userId], references: [id])
+  transactions Transaction[]
+
+  @@index([userId])
+}
+
+model Transaction {
+  id          String   @id @default(uuid())
+  userId      String
+  accountId   String
+  type        String
+  date        String
+  categoryId  String
+  subcategory String
+  amount      String
+  owner       User     @relation(fields: [userId], references: [id])
+  transaction Account  @relation(fields: [accountId], references: [id])
+  category    Category @relation(fields: [categoryId], references: [id])
+
+  @@index([userId, accountId])
+}
+
+model Category {
+  id            String        @id @default(uuid())
+  userId        String
+  name          String
+  subcategories String[]
+  owner         User          @relation(fields: [userId], references: [id])
+  Transaction   Transaction[]
+
+  @@index([userId])
+}

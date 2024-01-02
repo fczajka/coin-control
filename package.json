@@ -41,5 +41,9 @@
     "unocss": "^0.58.3",
     "vite": "^5.0.6",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.7.1",
+    "prisma": "^5.7.1"
   }
 }
