@@ -18,9 +18,13 @@
     "noEmit": true,
     "types": ["node", "vite/client"],
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "~/content": ["./public/content.ts"],
+      "~/enums": ["./globals/enums.ts"],
+      "~/interfaces": ["./globals/interfaces.ts"],
+      "~/utils": ["./globals/utils.ts"]
     }
   },
   "files": ["./.eslintrc.cjs"],
-  "include": ["src", "./*.d.ts", "./*.config.ts"]
+  "include": ["src", "./*.d.ts", "./*.config.ts", "public"]
 }
