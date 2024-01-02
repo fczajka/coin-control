@@ -5,6 +5,8 @@ import {
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/router-head/router-head";
+import "virtual:uno.css";
+import "@unocss/reset/tailwind-compat.css";
 
 export default component$(() => {
   /**
