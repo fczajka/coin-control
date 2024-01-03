@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@types/crypto-js": "^4.2.1",
-    "crypto-js": "^4.2.0"
+    "crypto-js": "^4.2.0",
+    "jose": "^5.2.0"
   }
 }

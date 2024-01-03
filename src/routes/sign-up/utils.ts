@@ -10,11 +10,11 @@ import type {
   UserBaseAccount,
   UserBaseCategory,
 } from "./interface";
-import { HmacSHA512, PBKDF2 } from "~/crypto";
+import { HmacSHA256, PBKDF2 } from "~/crypto";
 
 export const hashPassword = (password: string): Password => {
   const salt = generateRandomWordArray().toString();
-  const secret = PBKDF2(HmacSHA512(password, salt), salt, {
+  const secret = PBKDF2(HmacSHA256(password, salt), salt, {
     keySize: 256 / 32,
     iterations: 1000,
   }).toString();

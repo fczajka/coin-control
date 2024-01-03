@@ -22,7 +22,9 @@
       "~/content": ["./public/content.ts"],
       "~/enums": ["./src/globals/enums.ts"],
       "~/interfaces": ["./src/globals/interfaces.ts"],
-      "~/utils": ["./src/globals/utils.ts"]
+      "~/utils": ["./src/globals/utils.ts"],
+      "~/auth": ["./src/auth/index.ts"],
+      "~/crypto": ["./src/crypto/index.ts"]
     }
   },
   "files": ["./.eslintrc.cjs"],

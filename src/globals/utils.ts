@@ -13,3 +13,13 @@ export const encryptValue = (
     iv: iv,
   }).toString();
 };
+
+export const decryptValue = (
+  data: string,
+  secret: string,
+  iv: string,
+): string => {
+  return crypto.AES.decrypt(data, secret, {
+    iv: crypto.enc.Utf8.parse(iv),
+  }).toString(crypto.enc.Utf8);
+};

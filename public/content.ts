@@ -23,6 +23,14 @@ export const signUpForm = {
   button: { text: "Sign up", type: ButtonTypes.submit },
 };
 
+export const signInForm = {
+  fields: [
+    { name: "email", label: "E - mail", type: InputTypes.text },
+    { name: "password", label: "Password", type: InputTypes.password },
+  ],
+  button: { text: "Sign in", type: ButtonTypes.submit },
+};
+
 export const baseCategories = [
   {
     name: "Food & Drinks",
