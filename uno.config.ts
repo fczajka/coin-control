@@ -51,6 +51,7 @@ export default defineConfig({
     }),
   ],
   shortcuts: {
+    btn: "my-6 p-primary rounded-primary transition-all text-slate-50 bg-fuchsia-400 hover:bg-sky-400",
     "flex-column": "flex flex-col",
     "flex-center": "flex items-center justify-center",
     "sidebar-link":
