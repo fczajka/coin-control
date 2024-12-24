@@ -1,7 +1,6 @@
-import { get } from '@vercel/edge-config';
+import prisma from '@/lib/db';
 
-export default async function Home() {
-  const data = await get('greeting');
-
-  return <div> {data && data.toString()}</div>;
+export default async function Welcome() {
+  const user = await prisma.user.findUnique({ where: { id: 'test' } });
+  return <div>Hello {user?.firstName}</div>;
 }
