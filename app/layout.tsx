@@ -1,6 +1,18 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { arvo, nunito } from '@/public/fonts';
+import { Arvo, Nunito } from 'next/font/google';
+
+const arvo = Arvo({
+  variable: '--font-arvo',
+  subsets: ['latin'],
+  weight: '400',
+});
+
+const nunito = Nunito({
+  variable: '--font-nunito',
+  subsets: ['latin'],
+  weight: '400',
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${arvo.variable} ${nunito.variable} antialiased`}>
+      <body
+        className={`bg-off-white ${arvo.variable} ${nunito.variable} antialiased text-night`}
+      >
         {children}
       </body>
     </html>
