@@ -1,16 +1,23 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 export default {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        'off-white': '#FAF9F6',
+        seafoam: '##9BE5BE',
+        sunset: '##9BE5BE',
+        lavender: '#BA9CD6',
+        night: '#1C1C1C',
+      },
+      fontFamily: {
+        default: ['var(--font-nunito)', 'ui-serif', 'Georgia'],
+        headline: ['var(--font-arvo)', 'ui-sans-serif', 'system-ui'],
       },
     },
   },
