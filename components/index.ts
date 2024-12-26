@@ -1,3 +1,4 @@
 import Sidebar from './sidebar';
+import DeleteButton from './deleteButton';
 
-export { Sidebar };
+export { Sidebar, DeleteButton };

@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@/components": ["./components"]
+      "@/components": ["./components"],
+      "@/db": ["./lib/db.ts"]
     }
   },
   "include": [

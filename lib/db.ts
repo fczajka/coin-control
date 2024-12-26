@@ -9,8 +9,8 @@ declare const globalThis: {
 } & typeof global;
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-const prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
+const db = globalThis.prismaGlobal ?? prismaClientSingleton();
 
-if (process.env.NODE_ENV !== 'production') globalThis.prismaGlobal = prisma;
+if (process.env.NODE_ENV !== 'production') globalThis.prismaGlobal = db;
 
-export default prisma;
+export default db;
