@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Arvo, Nunito } from 'next/font/google';
+import { Sidebar } from '@/components';
 
 const arvo = Arvo({
   variable: '--font-arvo',
@@ -27,9 +28,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`bg-off-white ${arvo.variable} ${nunito.variable} antialiased text-night`}
+        className={`flex bg-off-white ${arvo.variable} ${nunito.variable} antialiased text-night`}
       >
-        {children}
+        <Sidebar />
+        <div className='p-8'>{children}</div>
       </body>
     </html>
   );

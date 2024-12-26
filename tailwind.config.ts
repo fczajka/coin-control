@@ -10,8 +10,8 @@ export default {
     extend: {
       colors: {
         'off-white': '#FAF9F6',
-        seafoam: '##9BE5BE',
-        sunset: '##9BE5BE',
+        seafoam: '#9BE5BE',
+        sunset: '#F1C685',
         lavender: '#BA9CD6',
         night: '#1C1C1C',
       },
