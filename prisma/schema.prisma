@@ -35,24 +35,26 @@ model Account {
   name         String
   amount       String
   currency     String
-  owner        User          @relation(fields: [userId], references: [id])
+  owner        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   transactions Transaction[]
 
   @@index([userId])
 }
 
 model Transaction {
-  id          String   @id @default(uuid())
-  userId      String
-  accountId   String
-  type        String
-  date        String
-  categoryId  String
-  subcategory String
-  amount      String
-  owner       User     @relation(fields: [userId], references: [id])
-  transaction Account  @relation(fields: [accountId], references: [id])
-  category    Category @relation(fields: [categoryId], references: [id])
+  id            String      @id @default(uuid())
+  userId        String
+  accountId     String
+  type          String
+  date          String
+  categoryId    String
+  subcategoryId String?
+  amount        String
+  owner         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  account   Account     @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  category      Category    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  subcategory   Subcategory? @relation(fields: [subcategoryId], references: [id], onDelete: Cascade)
+
 
   @@index([userId, accountId])
 }
@@ -61,9 +63,19 @@ model Category {
   id            String        @id @default(uuid())
   userId        String
   name          String
-  subcategories String[]
-  owner         User          @relation(fields: [userId], references: [id])
-  Transaction   Transaction[]
+  owner         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions   Transaction[]
+  subcategories   Subcategory[]
 
   @@index([userId])
+}
+
+model Subcategory {
+  id           String        @id @default(uuid())
+  categoryId   String
+  name         String
+  category     Category      @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+
+  @@index([categoryId])
 }
