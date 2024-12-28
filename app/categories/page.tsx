@@ -1,8 +1,7 @@
 import db from '@/db';
-import { MdEdit } from 'react-icons/md';
 import { create, deleteCategory } from './actions';
-import FormButton from './formButton';
-import { DeleteButton } from '@/components';
+import { DeleteButton, EditModal, FormButton } from '@/components';
+import { IoMdAddCircle } from 'react-icons/io';
 
 export default async function Categories() {
   'use server';
@@ -14,18 +13,18 @@ export default async function Categories() {
   return (
     <div>
       <h2 className='font-headline text-xl mb-12'>Categories</h2>
-      <form action={create}>
-        <label htmlFor='category' className='sr-only'>
-          Category
-        </label>
+      <form action={create} className='pb-4'>
+        <label htmlFor='category'>Category</label>
         <input
           type='text'
           id='categoryName'
           name='categoryName'
-          className='w-full bg-off-white rounded-lg px-4 py-2 mb-4'
-          placeholder='Category'
+          className='w-full bg-lavender/20 rounded-lg px-4 py-2 mb-4'
         />
-        <FormButton />
+        <FormButton fullFlex>
+          Add new category
+          <IoMdAddCircle className='ml-2 w-5 h-5' />
+        </FormButton>
       </form>
       <ul className='flex flex-col gap-4'>
         {categories.map((category) => (
@@ -34,8 +33,8 @@ export default async function Categories() {
             className='w-80 flex justify-between items-center bg-lavender rounded-lg px-4 py-2'
           >
             {category.name}
-            <div className='flex'>
-              <MdEdit className='w-5 h-5 ml-4 mr-1' />
+            <div className='flex gap-1 ml-4'>
+              <EditModal categoryId={category.id} name={category.name} />
               <DeleteButton id={category.id} callback={deleteCategory} />
             </div>
           </li>

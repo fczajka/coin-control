@@ -23,3 +23,14 @@ export async function deleteCategory(id: string): Promise<void> {
   });
   revalidatePath('/');
 }
+
+export async function editCategory(
+  categoryId: string,
+  formData: FormData,
+): Promise<void> {
+  await db.category.update({
+    data: { name: formData.get('categoryName') as string },
+    where: { id: categoryId },
+  });
+  revalidatePath('/');
+}
