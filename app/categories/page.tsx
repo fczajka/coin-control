@@ -8,13 +8,14 @@ export default async function Categories() {
 
   const categories = await db.category.findMany({
     where: { userId: 'root' },
+    orderBy: { name: 'asc' },
   });
 
   return (
     <div>
       <h2 className='font-headline text-xl mb-12'>Categories</h2>
       <form action={create} className='pb-4'>
-        <label htmlFor='category'>Category</label>
+        <label htmlFor='categoryName'>Category</label>
         <input
           type='text'
           id='categoryName'

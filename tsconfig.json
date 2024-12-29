@@ -21,7 +21,8 @@
     "paths": {
       "@/*": ["./*"],
       "@/components": ["./components"],
-      "@/db": ["./lib/db.ts"]
+      "@/db": ["./lib/db.ts"],
+      "@/interfaces": ["./globals/interfaces.ts"]
     }
   },
   "include": [
