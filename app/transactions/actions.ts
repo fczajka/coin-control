@@ -31,3 +31,8 @@ export async function create(formData: FormData): Promise<void> {
 
   revalidatePath('/');
 }
+
+export async function deleteTansaction(id: string): Promise<void> {
+  await db.transaction.delete({ where: { id } });
+  revalidatePath('/');
+}

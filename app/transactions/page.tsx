@@ -1,6 +1,8 @@
 import db from '@/db';
 import ButtonWithModal from './buttonWithModal';
 import type { Account, Category } from '@prisma/client';
+import { DeleteButton } from '@/components';
+import { deleteTansaction } from './actions';
 
 export default async function Transactions() {
   'use server';
@@ -30,7 +32,10 @@ export default async function Transactions() {
             key={transaction.id}
             className='w-80 flex justify-between items-center bg-lavender rounded-lg px-4 py-2'
           >
-            {transaction.amount}
+            <span>
+              {transaction.amount} {transaction.category.name}
+            </span>
+            <DeleteButton id={transaction.id} callback={deleteTansaction} />
           </li>
         ))}
       </ul>
