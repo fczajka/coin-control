@@ -3,7 +3,7 @@
 import db from '@/db';
 import { revalidatePath } from 'next/cache';
 
-export async function create(formData: FormData): Promise<void> {
+export async function createTransaction(formData: FormData): Promise<void> {
   const rawFormData = {
     amount: formData.get('amount'),
     categoryId: formData.get('category'),

@@ -4,11 +4,11 @@ import { MdEdit } from 'react-icons/md';
 import { useState } from 'react';
 import type { EditButtonProps } from './interface';
 import { IoMdCloseCircle } from 'react-icons/io';
-import { editCategory } from '@/app/categories/actions';
+import { updateCategory } from '@/app/categories/actions';
 import FormButton from '../formButton';
 
 export default function EditModal({ categoryId, name }: EditButtonProps) {
-  const editCategoryWithId = editCategory.bind(null, categoryId);
+  const updateCategoryWithId = updateCategory.bind(null, categoryId);
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -20,7 +20,7 @@ export default function EditModal({ categoryId, name }: EditButtonProps) {
       {isOpen && (
         <div className='fixed top-0 left-0 w-full h-full flex justify-center items-center bg-night/55'>
           <div className='relative bg-off-white rounded-lg p-4 pr-12'>
-            <form action={editCategoryWithId}>
+            <form action={updateCategoryWithId}>
               <label htmlFor='category' className='sr-only'>
                 Category
               </label>

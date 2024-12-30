@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { IoMdAddCircle, IoMdCloseCircle } from 'react-icons/io';
 import type { ButtonWithModalProps } from './interface';
-import { create } from '../actions';
+import { createTransaction } from '../actions';
 
 export default function ButtonWithModal({
   accounts,
@@ -25,7 +25,7 @@ export default function ButtonWithModal({
       {isOpen && (
         <div className='fixed top-0 left-0 w-full h-full flex justify-center items-center bg-night/55'>
           <div className='relative bg-off-white rounded-lg p-4 pr-12'>
-            <form action={create}>
+            <form action={createTransaction}>
               <label htmlFor='amount' className='sr-only'>
                 amount
               </label>

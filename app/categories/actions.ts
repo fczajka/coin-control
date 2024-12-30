@@ -3,7 +3,7 @@
 import db from '@/db';
 import { revalidatePath } from 'next/cache';
 
-export async function create(formData: FormData): Promise<void> {
+export async function createCategory(formData: FormData): Promise<void> {
   const rawFormData = {
     name: formData.get('categoryName'),
   };
@@ -24,7 +24,7 @@ export async function deleteCategory(id: string): Promise<void> {
   revalidatePath('/');
 }
 
-export async function editCategory(
+export async function updateCategory(
   categoryId: string,
   formData: FormData,
 ): Promise<void> {

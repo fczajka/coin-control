@@ -1,5 +1,5 @@
 import db from '@/db';
-import { create, deleteCategory } from './actions';
+import { createCategory, deleteCategory } from './actions';
 import { DeleteButton, EditModal, FormButton } from '@/components';
 import { IoMdAddCircle } from 'react-icons/io';
 
@@ -14,7 +14,7 @@ export default async function Categories() {
   return (
     <div>
       <h2 className='font-headline text-xl mb-12'>Categories</h2>
-      <form action={create} className='pb-4'>
+      <form action={createCategory} className='pb-4'>
         <label htmlFor='categoryName'>Category</label>
         <input
           type='text'

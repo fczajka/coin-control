@@ -14,8 +14,6 @@ export default function EditModal({
   const updateTransactionWithId = updateTransaction.bind(null, transactionId);
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log('test');
-
   return (
     <>
       <MdEdit
