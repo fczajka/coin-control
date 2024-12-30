@@ -3,6 +3,7 @@ import ButtonWithModal from './buttonWithModal';
 import type { Account, Category } from '@prisma/client';
 import { DeleteButton } from '@/components';
 import { deleteTansaction } from './actions';
+import EditModal from './editModal';
 
 export default async function Transactions() {
   'use server';
@@ -35,7 +36,14 @@ export default async function Transactions() {
             <span>
               {transaction.amount} {transaction.category.name}
             </span>
-            <DeleteButton id={transaction.id} callback={deleteTansaction} />
+            <div className='flex gap-1 ml-4'>
+              <EditModal
+                transactionId={transaction.id}
+                accounts={accounts}
+                categories={categories}
+              />
+              <DeleteButton id={transaction.id} callback={deleteTansaction} />
+            </div>
           </li>
         ))}
       </ul>
