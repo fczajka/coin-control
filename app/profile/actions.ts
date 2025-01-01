@@ -37,3 +37,40 @@ export async function updatePassword(
   });
   revalidatePath('/');
 }
+
+export async function createAccount(
+  userId: string,
+  formData: FormData,
+): Promise<void> {
+  await db.account.create({
+    data: {
+      userId: userId,
+      name: formData.get('accountName') as string,
+      amount: formData.get('accountBalance') as string,
+      currency: formData.get('currency') as string,
+    },
+  });
+  revalidatePath('/');
+}
+
+export async function updateAccount(
+  accountId: string,
+  formData: FormData,
+): Promise<void> {
+  await db.account.update({
+    data: {
+      name: formData.get('accountName') as string,
+      amount: formData.get('accountBalance') as string,
+      currency: formData.get('currency') as string,
+    },
+    where: { id: accountId },
+  });
+  revalidatePath('/');
+}
+
+export async function deleteAccount(accountId: string): Promise<void> {
+  await db.account.delete({
+    where: { id: accountId },
+  });
+  revalidatePath('/');
+}
