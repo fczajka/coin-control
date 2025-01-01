@@ -21,6 +21,7 @@ model User {
   lastName     String
   salt         String
   iv           String
+  key          String
   deleted      Boolean       @default(false)
   accounts     Account[]
   transactions Transaction[]
@@ -42,7 +43,7 @@ model Account {
 }
 
 model Transaction {
-  id            String      @id @default(uuid())
+  id            String       @id @default(uuid())
   userId        String
   accountId     String
   type          String
@@ -50,11 +51,10 @@ model Transaction {
   categoryId    String
   subcategoryId String?
   amount        String
-  owner         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  account   Account     @relation(fields: [accountId], references: [id], onDelete: Cascade)
-  category      Category    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  owner         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  account       Account      @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  category      Category     @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   subcategory   Subcategory? @relation(fields: [subcategoryId], references: [id], onDelete: Cascade)
-
 
   @@index([userId, accountId])
 }
@@ -64,8 +64,8 @@ model Category {
   userId        String
   name          String
   owner         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  transactions   Transaction[]
-  subcategories   Subcategory[]
+  transactions  Transaction[]
+  subcategories Subcategory[]
 
   @@index([userId])
 }
