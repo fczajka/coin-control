@@ -1,7 +1,8 @@
 import db from '@/db';
 import { createCategory, deleteCategory } from './actions';
-import { DeleteButton, EditModal, FormButton } from '@/components';
+import { DeleteButton, FormButton } from '@/components';
 import { IoMdAddCircle } from 'react-icons/io';
+import EditModal from './editModal';
 
 export default async function Categories() {
   'use server';

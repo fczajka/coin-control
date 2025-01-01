@@ -5,7 +5,7 @@ import { useState } from 'react';
 import type { EditButtonProps } from './interface';
 import { IoMdCloseCircle } from 'react-icons/io';
 import { updateCategory } from '@/app/categories/actions';
-import FormButton from '../formButton';
+import FormButton from '../../../components/formButton';
 
 export default function EditModal({ categoryId, name }: EditButtonProps) {
   const updateCategoryWithId = updateCategory.bind(null, categoryId);
